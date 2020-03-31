@@ -1,6 +1,12 @@
 pipeline {
 	agent any
 	stages {
+		stage('CD stage') {
+			steps {
+				cd ChatApp
+			}
+		}
+		
 		stage('Clean stage') {
 			steps {
 				withMaven(maven: 'maven_3_6_1') {
