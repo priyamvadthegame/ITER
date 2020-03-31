@@ -4,7 +4,7 @@ pipeline {
 		stage('CD stage') {
 			steps {
 				dir("ChatApp") {
-				    sh "pwd"
+				    bat "pwd"
 				}		
 			}
 		}
