@@ -1,33 +1,32 @@
 pipeline {
 	agent any
 	stages {
-		stage('CD stage') {
-			steps {
-				dir("ChatApp") {
-				}		
-			}
-		}
-		
 		stage('Clean stage') {
 			steps {
-				withMaven(maven: 'maven_3_6_1') {
-					bat 'mvn clean'
+				dir("ChatApp") {
+					withMaven(maven: 'maven_3_6_1') {
+						bat 'mvn clean'
+					}
 				}
 			}
 		}
 		
 		stage('Compile stage') {
 			steps {
-				withMaven(maven: 'maven_3_6_1') {
-					bat 'mvn compile'
+				dir("ChatApp") {
+					withMaven(maven: 'maven_3_6_1') {
+						bat 'mvn compile'
+					}
 				}
 			}
 		}
 		
 		stage('Install stage') {
 			steps {
-				withMaven(maven: 'maven_3_6_1') {
-					bat 'mvn install'
+				dir("ChatApp") {
+					withMaven(maven: 'maven_3_6_1') {
+						bat 'mvn install'
+					}
 				}
 			}
 		}
