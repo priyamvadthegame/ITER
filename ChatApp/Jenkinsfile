@@ -1,0 +1,29 @@
+pipeline {
+	agent any
+	stages {
+		stage('Clean stage') {
+			steps {
+				withMaven(maven: 'maven_3_6_1') {
+					sh 'mvn clean'
+				}
+			}
+		}
+		
+		stage('Compile stage') {
+			steps {
+				withMaven(maven: 'maven_3_6_1') {
+					sh 'mvn compile'
+				}
+			}
+		}
+		
+		stage('Install stage') {
+			steps {
+				withMaven(maven: 'maven_3_6_1') {
+					sh 'mvn install'
+				}
+			}
+		}
+		
+	}
+}
