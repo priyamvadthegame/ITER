@@ -3,9 +3,9 @@ pipeline {
 	stages {
 		stage('CD stage') {
 			steps {
-				withMaven(maven: 'maven_3_6_1') {
-					cd ChatApp
-				}
+				dir("ChatApp") {
+				    sh "pwd"
+				}		
 			}
 		}
 		
